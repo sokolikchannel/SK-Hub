@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SK Hub - Download SK Auto Clicker and SK Auto Clicker PRO. Lightweight automation tools for mouse clicks and keyboard keystrokes. Free and PRO versions available.">
+  <meta name="keywords" content="SK Hub, SK Auto Clicker, auto clicker, automation tool, mouse automation, keyboard automation, free auto clicker, SK Auto Clicker PRO">
+  <meta name="theme-color" content="#16a34a">
+  <meta name="google-site-verification" content="IG1CuFSEsBc8ua2jxIcp8TLWJIpgS1HcAmpmjkA37v4" />
+  <meta property="og:title" content="SK Hub — SK Auto Clicker">
+  <meta property="og:description" content="Lightweight automation tools for mouse clicks and keyboard keystrokes. Free and PRO versions available.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sokolikchannel.github.io/SK-Hub/">
+  <meta property="og:image" content="https://sokolikchannel.github.io/SK-Hub/Image/hub_logo.png">
+  <title>SK Hub - Download SK Auto Clicker & SK Auto Clicker PRO</title>
+  <link rel="icon" type="image/png" href="Image/hub_logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="hero-card" aria-labelledby="app-title">
+      <div class="hero-badge fade-in-up" data-order="1" aria-hidden="true">
+        <img src="Image/hub_logo.png" alt="SK Hub logo" class="hero-logo">
+      </div>
+      <p class="hero-eyebrow fade-in-up" data-order="2">SK Hub</p>
+      <h1 id="app-title" class="fade-in-up" data-order="3">Welcome to SK Hub</h1>
+      <p class="hero-copy fade-in-up" data-order="4">Choose an app below to view its releases and details.</p>
+
+      <div id="hero-actions" class="hero-actions hidden fade-in-up" data-order="9" aria-hidden="true">
+        <a class="download-button" id="download-button" href="#" role="button" target="_blank" rel="noopener noreferrer">Download</a>
+        <button class="back-button" id="back-button" type="button">Back</button>
+      </div>
+      <div id="screenshot-slider" class="screenshot-slider hidden fade-in-up" data-order="10" aria-hidden="true">
+        <div class="screenshot-frame">
+          <button class="screenshot-btn screenshot-prev" id="screenshot-prev" aria-label="Previous screenshot">‹</button>
+          <img id="screenshot-img" src="" alt="screenshot">
+          <button class="screenshot-btn screenshot-next" id="screenshot-next" aria-label="Next screenshot">›</button>
+        </div>
+      </div>
+      <div id="hero-info" class="hero-info hidden fade-in-up" data-order="8" aria-hidden="true"></div>
+    </div>
+
+    <main class="content">
+      <section class="releases fade-in-up" aria-labelledby="releases-title">
+        <h2 id="releases-title" class="fade-in-up" data-order="5">Applications</h2>
+
+        <div class="app-list" id="app-list" role="list">
+          <button class="app-card fade-in-up" data-order="6" data-app="sk" role="listitem" aria-selected="false">
+            <img src="Image/app_logo.ico" alt="SK Auto Clicker" class="app-card-logo">
+            <div class="app-card-body">
+              <div class="app-card-header">
+                <div class="app-card-title">SK Auto Clicker</div>
+                <div class="app-card-price">Free</div>
+              </div>
+              <div class="app-card-desc">A lightweight, reliable, and user-friendly automation tool designed to eliminate monotonous repetitive actions. It automates mouse clicks and keyboard keystrokes to streamline tasks.</div>
+            </div>
+          </button>
+
+          <button class="app-card fade-in-up" data-order="7" data-app="pro" role="listitem" aria-selected="false">
+            <img src="Image/app_logo_pro.ico" alt="SK Auto Clicker PRO" class="app-card-logo">
+            <div class="app-card-body">
+              <div class="app-card-header">
+                <div class="app-card-title">SK Auto Clicker PRO</div>
+                <div class="app-card-price">???</div>
+              </div>
+              <div class="app-card-desc">The PRO version is currently in development.</div>
+            </div>
+          </button>
+        </div>
+
+        <div class="release-grid hidden" id="release-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
