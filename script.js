@@ -128,7 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll('.app-card').forEach(c => c.classList.toggle('selected', c.dataset.app === key));
   }
 
-  // screenshot slider logic
   let currentScreenshotIndex = 0;
   function showNextScreenshot(data) {
     if (!data || !data.screenshots) return;
@@ -161,7 +160,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (shotNext) {
     shotNext.addEventListener('click', () => {
-      // find currently selected app to get its screenshots
       const selected = document.querySelector('.app-card.selected');
       const key = selected ? selected.dataset.app : null;
       if (key && appData[key]) showNextScreenshot(appData[key]);
