@@ -24,7 +24,7 @@ html, body {
 
 body {
   margin: 0;
-  background: #050d09;
+  background: var(--section-bg);
   color: var(--text);
 }
 
