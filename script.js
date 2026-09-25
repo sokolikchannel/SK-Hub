@@ -47,6 +47,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const shotNext = document.getElementById('screenshot-next');
   const shotImg = document.getElementById('screenshot-img');
 
+  function replayAppearance(elements) {
+    const targets = elements.filter(Boolean);
+
+    targets.forEach(el => {
+      el.classList.remove('view-appear');
+      el.style.removeProperty('--view-delay');
+    });
+
+    void document.body.offsetHeight;
+
+    targets.forEach((el, index) => {
+      el.style.setProperty('--view-delay', `${index * 70}ms`);
+      el.classList.add('view-appear');
+      el.addEventListener('animationend', () => {
+        el.classList.remove('view-appear');
+        el.style.removeProperty('--view-delay');
+      }, { once: true });
+    });
+  }
+
   function resetHub() {
     const pageShell = document.querySelector('.page-shell');
     if (appList) appList.classList.remove('hidden');
@@ -69,6 +89,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (shotImg) shotImg.src = '';
     if (releasesTitle) releasesTitle.textContent = 'Applications';
     document.querySelectorAll('.app-card').forEach(c => c.classList.remove('selected'));
+
+    replayAppearance([
+      heroLogo ? heroLogo.closest('.hero-badge') : null,
+      heroEyebrow,
+      heroTitle,
+      heroCopy,
+      releasesTitle,
+      ...document.querySelectorAll('.app-card')
+    ]);
   }
 
   function selectApp(key) {
@@ -89,8 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="info-row">
             <div class="info-item"><strong>Approximate size</strong><div class="info-value">44.9 MB</div></div>
             <div class="info-item"><strong>Release date</strong><div class="info-value">6/1/2026</div></div>
-            <div class="info-item"><strong>Last updated</strong><div class="info-value">8/30/2026</div></div>
-            <div class="info-item"><strong>Latest version</strong><div class="info-value">26.9.1.0</div></div>
+            <div class="info-item"><strong>Last updated</strong><div class="info-value">10/1/2026</div></div>
+            <div class="info-item"><strong>Latest version</strong><div class="info-value">26.10.1.0</div></div>
             <div class="info-item"><strong>Price</strong><div class="info-value">Free</div></div>
             <div class="info-item"><strong>Supported languages</strong><div class="info-value">English, Russian, Ukrainian</div></div>
           </div>
@@ -126,14 +155,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     document.querySelectorAll('.app-card').forEach(c => c.classList.toggle('selected', c.dataset.app === key));
+
+    replayAppearance([
+      heroLogo ? heroLogo.closest('.hero-badge') : null,
+      heroTitle,
+      heroCopy,
+      heroInfo && !heroInfo.classList.contains('hidden') ? heroInfo : null,
+      slider && !slider.classList.contains('hidden') ? slider : null,
+      heroActions && !heroActions.classList.contains('hidden') ? heroActions : null
+    ]);
   }
 
   let currentScreenshotIndex = 0;
+  function getSelectedAppData() {
+    const selected = document.querySelector('.app-card.selected');
+    const key = selected ? selected.dataset.app : null;
+    return key ? appData[key] : null;
+  }
+
+  function updateScreenshotImage(data) {
+    if (!data || !data.screenshots) return;
+    if (shotImg) shotImg.src = data.screenshots[currentScreenshotIndex];
+  }
+
   function showNextScreenshot(data) {
     if (!data || !data.screenshots) return;
     if (currentScreenshotIndex < data.screenshots.length - 1) {
       currentScreenshotIndex = currentScreenshotIndex + 1;
-      if (shotImg) shotImg.src = data.screenshots[currentScreenshotIndex];
+      updateScreenshotImage(data);
     }
     updateScreenshotButtons(data);
   }
@@ -141,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!data || !data.screenshots) return;
     if (currentScreenshotIndex > 0) {
       currentScreenshotIndex = currentScreenshotIndex - 1;
-      if (shotImg) shotImg.src = data.screenshots[currentScreenshotIndex];
+      updateScreenshotImage(data);
     }
     updateScreenshotButtons(data);
   }
@@ -160,22 +209,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (shotNext) {
     shotNext.addEventListener('click', () => {
-      const selected = document.querySelector('.app-card.selected');
-      const key = selected ? selected.dataset.app : null;
-      if (key && appData[key]) showNextScreenshot(appData[key]);
+      const data = getSelectedAppData();
+      if (data) showNextScreenshot(data);
     });
   }
   if (shotPrev) {
     shotPrev.addEventListener('click', () => {
-      const selected = document.querySelector('.app-card.selected');
-      const key = selected ? selected.dataset.app : null;
-      if (key && appData[key]) showPrevScreenshot(appData[key]);
+      const data = getSelectedAppData();
+      if (data) showPrevScreenshot(data);
     });
   }
-
   document.querySelectorAll('.app-card').forEach(btn => {
     btn.addEventListener('click', () => selectApp(btn.dataset.app));
   });
   if (backBtn) backBtn.addEventListener('click', resetHub);
 });
-
