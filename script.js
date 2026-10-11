@@ -85,7 +85,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (heroEyebrow) heroEyebrow.classList.remove('hidden');
     if (heroInfo) { heroInfo.classList.add('hidden'); heroInfo.innerHTML = ''; }
     const slider = document.getElementById('screenshot-slider');
-    if (slider) { slider.classList.add('hidden'); }
+    if (slider) { slider.classList.add('hidden'); slider.classList.remove('is-empty'); }
+    const screenshotEmpty = document.querySelector('.screenshot-empty');
+    if (screenshotEmpty) screenshotEmpty.classList.add('hidden');
     if (shotImg) shotImg.src = '';
     if (releasesTitle) releasesTitle.textContent = 'Applications';
     document.querySelectorAll('.app-card').forEach(c => c.classList.remove('selected'));
@@ -124,18 +126,44 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="info-item"><strong>Supported languages</strong><div class="info-value">English, Russian, Ukrainian</div></div>
           </div>
         `;
-        heroInfo.classList.remove('hidden');
-        heroCard.classList.add('hero-info-open');
-        if (slider && data.screenshots && data.screenshots.length) {
-          currentScreenshotIndex = 0;
-          if (shotImg) shotImg.src = data.screenshots[currentScreenshotIndex];
-          slider.classList.remove('hidden');
-          updateScreenshotButtons(data);
-        }
       } else {
-        heroInfo.classList.add('hidden');
-        heroInfo.innerHTML = '';
-        heroCard.classList.remove('hero-info-open');
+        heroInfo.innerHTML = `
+          <h4>Additional information</h4>
+          <div class="info-row">
+            <div class="info-item"><strong>Approximate size</strong><div class="info-value">???</div></div>
+            <div class="info-item"><strong>Release date</strong><div class="info-value">???</div></div>
+            <div class="info-item"><strong>Last updated</strong><div class="info-value">???</div></div>
+            <div class="info-item"><strong>Latest version</strong><div class="info-value">???</div></div>
+            <div class="info-item"><strong>Price</strong><div class="info-value">???</div></div>
+            <div class="info-item"><strong>Supported languages</strong><div class="info-value">???</div></div>
+          </div>
+        `;
+      }
+      heroInfo.classList.remove('hidden');
+      heroCard.classList.add('hero-info-open');
+      if (slider && key === 'sk' && data.screenshots && data.screenshots.length) {
+        slider.classList.remove('is-empty');
+        const screenshotEmpty = slider.querySelector('.screenshot-empty');
+        if (screenshotEmpty) screenshotEmpty.classList.add('hidden');
+        if (shotImg) {
+          currentScreenshotIndex = 0;
+          shotImg.src = data.screenshots[currentScreenshotIndex];
+        }
+        slider.classList.remove('hidden');
+        updateScreenshotButtons(data);
+      } else if (slider && key === 'pro') {
+        slider.classList.add('is-empty');
+        if (shotImg) shotImg.src = '';
+        const screenshotEmpty = slider.querySelector('.screenshot-empty');
+        if (screenshotEmpty) screenshotEmpty.classList.remove('hidden');
+        [shotPrev, shotNext].forEach(button => {
+          if (!button) return;
+          button.disabled = true;
+          button.setAttribute('aria-disabled', 'true');
+        });
+        slider.classList.remove('hidden');
+      } else {
+        if (slider) slider.classList.add('hidden');
       }
     }
 
