@@ -118,8 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="info-row">
             <div class="info-item"><strong>Approximate size</strong><div class="info-value">44.9 MB</div></div>
             <div class="info-item"><strong>Release date</strong><div class="info-value">6/1/2026</div></div>
-            <div class="info-item"><strong>Last updated</strong><div class="info-value">10/1/2026</div></div>
-            <div class="info-item"><strong>Latest version</strong><div class="info-value">26.10.1.0</div></div>
+            <div class="info-item"><strong>Last updated</strong><div class="info-value">10/10/2026</div></div>
+            <div class="info-item"><strong>Latest version</strong><div class="info-value">26.10.2.0</div></div>
             <div class="info-item"><strong>Price</strong><div class="info-value">Free</div></div>
             <div class="info-item"><strong>Supported languages</strong><div class="info-value">English, Russian, Ukrainian</div></div>
           </div>

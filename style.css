@@ -1,17 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
 :root {
   color-scheme: dark;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --bg: #06120d;
-  --surface: rgba(6, 18, 12, 0.76);
-  --surface-strong: rgba(8, 24, 15, 0.95);
-  --section-bg: #0a1510;
-  --section-line: rgba(116, 148, 126, 0.12);
-  --text: #ffffff;
-  --muted: rgba(230,240,232,0.78);
-  --accent: #2f8f55;
-  --heading: #76f04e;
-  --shadow: 0 28px 80px rgba(0, 0, 0, 0.6);
-  --radius: 20px;
+  font-family: "DM Sans", "Avenir Next", sans-serif;
+  --bg: #000000;
+  --surface: #121212;
+  --surface-strong: #1e1e1d;
+  --section-bg: #000000;
+  --section-line: #1e1e1d;
+  --text: #faf9f6;
+  --muted: #b4b4b2;
+  --accent: #cbb0f7;
+  --heading: #faf9f6;
+  --shadow: none;
+  --radius: 12px;
 }
 
 * {
@@ -475,5 +477,475 @@ body {
   .store-icon {
     width: 64px;
     height: 64px;
+  }
+}
+
+html,
+body {
+  background: var(--bg);
+}
+
+html {
+  overflow-x: clip;
+}
+
+body {
+  color: var(--text);
+  font-family: "DM Sans", "Avenir Next", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+::selection {
+  color: #080808;
+  background: var(--accent);
+}
+
+.page-shell {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  background: var(--bg);
+}
+
+.hero-card {
+  left: auto;
+  right: auto;
+  width: 100%;
+  margin: 0;
+  padding: 76px 32px 64px;
+  background: var(--bg);
+  border: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.hero-card::before {
+  display: none;
+}
+
+.hero-badge {
+  width: 68px;
+  height: 68px;
+  margin-bottom: 24px;
+}
+
+.hero-logo,
+.app-card-logo {
+  filter: grayscale(1);
+}
+
+.hero-eyebrow {
+  margin-bottom: 14px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+}
+
+.hero-eyebrow,
+.hero-card h1,
+.app-card-title,
+.info-card h3 {
+  text-shadow: none;
+}
+
+.hero-card h1,
+h1 {
+  color: var(--text);
+  font-size: clamp(40px, 6vw, 56px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.hero-copy {
+  max-width: 540px;
+  margin: 16px auto 0;
+  color: #868684;
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.hero-actions {
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.hero-actions .download-button,
+.hero-actions .back-button {
+  padding: 10px 20px;
+}
+
+.content {
+  left: auto;
+  width: auto;
+  margin-left: 0;
+  padding: 48px 32px 80px;
+  background: var(--bg);
+  border-top: 1px solid var(--section-line);
+}
+
+.releases {
+  max-width: 1200px;
+  gap: 24px;
+  text-align: left;
+}
+
+.releases h2 {
+  color: var(--text);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.app-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 12px;
+  margin-top: 0;
+}
+
+.app-card {
+  min-height: 148px;
+  max-width: none;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px;
+  color: var(--text);
+  font-family: inherit;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid #1e1e1d;
+  border-radius: 12px;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.app-card:hover,
+.app-card.fade-in-up.visible:hover {
+  transform: none;
+  background: #171717;
+  border-color: #40403f;
+  box-shadow: none;
+}
+
+.app-card.selected,
+.app-card.selected:hover {
+  transform: none;
+  background: #121212;
+  border-color: rgba(203, 176, 247, 0.55);
+  box-shadow: inset 0 0 0 1px rgba(203, 176, 247, 0.08);
+}
+
+.app-card-logo {
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #333333;
+  border-radius: 8px;
+}
+
+.app-card-body {
+  min-width: 0;
+  gap: 8px;
+  flex: 1;
+}
+
+.app-card-header {
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.app-card-title {
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.app-card-price {
+  position: static;
+  flex: 0 0 auto;
+  color: #868684;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.app-card-desc {
+  color: #868684;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.download-button {
+  color: #080808;
+  background: #faf9f6;
+  border: 0;
+  border-radius: 33px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 150ms ease;
+}
+
+.download-button:hover {
+  transform: none;
+  background: #e3e2e0;
+}
+
+.back-button {
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid #333333;
+  border-radius: 33px;
+  font-size: 14px;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+.back-button:hover {
+  color: var(--text);
+  border-color: #b4b4b2;
+  box-shadow: none;
+}
+
+.hero-info {
+  max-width: 820px;
+  padding: 20px;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid #1e1e1d;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.hero-info h4,
+.info-card h3 {
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.hero-info .info-item strong,
+.info-item strong {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.hero-info .info-value,
+.info-value {
+  color: #868684;
+  font-size: 13px;
+}
+
+.hero-expanded {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  margin: 0;
+  padding: 56px 24px 40px;
+  overflow: auto;
+  background: #000000;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  z-index: 9999;
+}
+
+.hero-expanded-light {
+  min-height: 60vh;
+  background: #000000;
+  border: 0;
+  border-radius: 0;
+}
+
+.screenshot-slider {
+  width: min(100%, 1000px);
+  padding: 12px 0;
+}
+
+.screenshot-frame {
+  max-width: 100%;
+  background: #080808;
+  border: 1px solid #1e1e1d;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.screenshot-frame:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.screenshot-frame img {
+  border-radius: 7px;
+}
+
+.screenshot-btn {
+  width: 40px;
+  height: 40px;
+  color: var(--text);
+  background: #1e1e1d;
+  border: 1px solid #40403f;
+  box-shadow: none;
+  font-size: 22px;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.screenshot-btn:hover {
+  transform: translateY(calc(-50% - 2px));
+  background: #333333;
+  border-color: #666469;
+}
+
+.screenshot-btn:active,
+.screenshot-btn[disabled] {
+  transform: translateY(-50%);
+}
+
+.screenshot-btn[disabled] {
+  opacity: 0.4;
+}
+
+.info-card {
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid #1e1e1d;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.info-item {
+  background: transparent;
+}
+
+.store-button {
+  background: var(--surface);
+  border: 1px solid #1e1e1d;
+  border-radius: 12px;
+  box-shadow: none;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.store-button:hover,
+.store-card:hover .store-button {
+  transform: none;
+  background: #1e1e1d;
+  border-color: #40403f;
+  box-shadow: none;
+}
+
+.store-button-microsoft,
+.store-button-github {
+  background: var(--surface);
+}
+
+.store-card:hover .store-label {
+  text-shadow: none;
+}
+
+.store-label {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.fade-in-up {
+  transform: translateY(12px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.view-appear {
+  animation-duration: 500ms;
+}
+
+@media (max-width: 720px) {
+  .page-shell {
+    padding: 0 20px 40px;
+  }
+
+  .hero-card {
+    padding: 56px 24px 48px;
+  }
+
+  .content {
+    padding: 36px 20px 56px;
+  }
+
+  .app-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-card {
+    padding: 44px 18px 40px;
+  }
+
+  .hero-card h1,
+  h1 {
+    font-size: 40px;
+  }
+
+  .releases h2 {
+    font-size: 28px;
+  }
+
+  .app-card {
+    min-height: 0;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .app-card-logo {
+    flex-basis: 40px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .app-card-title {
+    font-size: 14px;
+  }
+
+  .app-card-header {
+    align-items: flex-start;
+  }
+
+  .app-card-price {
+    font-size: 11px;
+  }
+
+  .hero-expanded {
+    padding: 40px 18px 28px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
