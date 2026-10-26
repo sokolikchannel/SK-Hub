@@ -17,17 +17,20 @@ document.addEventListener("DOMContentLoaded", () => {
       desc: "A lightweight, reliable, and user-friendly automation tool designed to eliminate monotonous repetitive actions. Whether you need to automate routine office tasks, test software, speed up data entry, or streamline a workflow, this app handles it effortlessly by automating both mouse clicks and keyboard keystrokes.",
       store1: "https://apps.microsoft.com/detail/9p3nw1fw6n4q?hl=eng-ENG&gl=ENG",
       screenshots: [
-        'Image/screenshots/screenshot1.jpeg',
-        'Image/screenshots/screenshot2.jpeg',
-        'Image/screenshots/screenshot3.jpeg',
-        'Image/screenshots/screenshot4.jpeg',
-        'Image/screenshots/screenshot5.jpeg'
+        'Image/screenshots/1.png',
+        'Image/screenshots/2.png',
+        'Image/screenshots/3.png'
       ]
     },
     pro: {
       name: "SK Auto Clicker PRO",
       desc: "The PRO version is currently in development.",
-      store1: "https://www.microsoft.com/store/apps/sk-auto-clicker-pro"
+      store1: "https://www.microsoft.com/store/apps/sk-auto-clicker-pro",
+      screenshots: [
+        'Image/screenshots/1_pro.png',
+        'Image/screenshots/2_pro.png',
+        'Image/screenshots/3_pro.png'
+      ]
     }
   };
 
@@ -141,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       heroInfo.classList.remove('hidden');
       heroCard.classList.add('hero-info-open');
-      if (slider && key === 'sk' && data.screenshots && data.screenshots.length) {
+      if (slider && data.screenshots && data.screenshots.length) {
         slider.classList.remove('is-empty');
         const screenshotEmpty = slider.querySelector('.screenshot-empty');
         if (screenshotEmpty) screenshotEmpty.classList.add('hidden');
@@ -151,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         slider.classList.remove('hidden');
         updateScreenshotButtons(data);
-      } else if (slider && key === 'pro') {
+      } else if (slider) {
         slider.classList.add('is-empty');
         if (shotImg) shotImg.src = '';
         const screenshotEmpty = slider.querySelector('.screenshot-empty');
@@ -162,8 +165,6 @@ document.addEventListener("DOMContentLoaded", () => {
           button.setAttribute('aria-disabled', 'true');
         });
         slider.classList.remove('hidden');
-      } else {
-        if (slider) slider.classList.add('hidden');
       }
     }
 
