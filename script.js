@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     pro: {
       name: "SK Auto Clicker PRO",
-      desc: "The PRO version is currently in development.",
-      store1: "https://www.microsoft.com/store/apps/sk-auto-clicker-pro",
+      desc: "SK Auto Clicker PRO is an enhanced, reliable, and user-friendly automation tool designed to eliminate repetitive manual tasks with greater flexibility. Whether you need to automate routine office work, test software, manage data entry, or streamline your workflow, this application handles it effortlessly by automating both mouse clicks and keyboard key presses, while offering a refined visual design, extended customization, and expanded language support.",
+      store1: "https://apps.microsoft.com/detail/9nwt97gv6s19?hl=en-US&gl=US",
       screenshots: [
         'Image/screenshots/1_pro.png',
         'Image/screenshots/2_pro.png',
@@ -133,9 +133,9 @@ document.addEventListener("DOMContentLoaded", () => {
         heroInfo.innerHTML = `
           <h4>Additional information</h4>
           <div class="info-row">
-            <div class="info-item"><strong>Approximate size</strong><div class="info-value">???</div></div>
-            <div class="info-item"><strong>Release date</strong><div class="info-value">12/XX/2026</div></div>
-            <div class="info-item"><strong>Last updated</strong><div class="info-value">XX/XX/XXXX</div></div>
+            <div class="info-item"><strong>Approximate size</strong><div class="info-value">54.4 MB</div></div>
+            <div class="info-item"><strong>Release date</strong><div class="info-value">11/18/2026</div></div>
+            <div class="info-item"><strong>Last updated</strong><div class="info-value">11/18/2026</div></div>
             <div class="info-item"><strong>Latest version</strong><div class="info-value">26.12.1.0</div></div>
             <div class="info-item"><strong>Price</strong><div class="info-value">$1.5</div></div>
             <div class="info-item"><strong>Supported languages</strong><div class="info-value">English, Russian, Ukrainian, German, French, Spanish, Italian, Polish, Dutch, Portuguese, Czech, Romanian, Turkish</div></div>
