@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     sk: {
       name: "SK Auto Clicker",
       desc: "A lightweight, reliable, and user-friendly automation tool designed to eliminate monotonous repetitive actions. Whether you need to automate routine office tasks, test software, speed up data entry, or streamline a workflow, this app handles it effortlessly by automating both mouse clicks and keyboard keystrokes.",
-      store1: "https://apps.microsoft.com/detail/9p3nw1fw6n4q?hl=eng-ENG&gl=ENG",
+      store1: "https://apps.microsoft.com/detail/9P3NW1FW6N4Q",
       screenshots: [
         'Image/screenshots/1.png',
         'Image/screenshots/2.png',
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pro: {
       name: "SK Auto Clicker PRO",
       desc: "SK Auto Clicker PRO is an enhanced, reliable, and user-friendly automation tool designed to eliminate repetitive manual tasks with greater flexibility. Whether you need to automate routine office work, test software, manage data entry, or streamline your workflow, this application handles it effortlessly by automating both mouse clicks and keyboard key presses, while offering a refined visual design, extended customization, and expanded language support.",
-      store1: "https://apps.microsoft.com/detail/9nwt97gv6s19?hl=en-US&gl=US",
+      store1: "https://apps.microsoft.com/detail/9NWT97GV6S19",
       screenshots: [
         'Image/screenshots/1_pro.png',
         'Image/screenshots/2_pro.png',
